@@ -1,28 +1,4 @@
-// // src/components/Header.jsx
-// import { Menu } from 'lucide-react';
 
-// function Navbar({ toggleSidebar }) {
-//   return (
-//     <header className="bg-gray-800 text-white flex items-center px-4 py-3 justify-between">
-//       <div className="flex items-center space-x-4">
-//         <button onClick={toggleSidebar} className="focus:outline-none">
-//           <Menu className="w-6 h-6" />
-//         </button>
-//         <span className="text-xl font-bold">HUB portal</span>
-//       </div>
-//       <div className="space-x-6">
-//         <button className="hover:underline">Pages</button>
-//         <button className="hover:underline">Design</button>
-//         <button className="hover:underline">Settings</button>
-//         <button className="hover:underline">Domain</button>
-//       </div>
-//     </header>
-//   );
-// }
-
-// export default Navbar;
-
-// src/components/Header.jsx
 import { ChevronDown, Menu } from 'lucide-react';
 import { useState } from 'react';
 

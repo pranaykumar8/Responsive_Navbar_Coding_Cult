@@ -25,19 +25,5 @@ function App() {
   );
 }
 
-// const App = () => {
-//   return(
-//     <div>
-//       <Home/>
-      
-//       <About/>
-//       <Promo/>
-//       <Testimonials/>
-//       <Contact/>
-//       <Services/>
-//     </div>
-//   )
-// }
-
 export default App;
 
