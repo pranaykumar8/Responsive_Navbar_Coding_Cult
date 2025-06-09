@@ -1,8 +1,5 @@
-
-
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 
@@ -13,18 +10,17 @@ export default function Layout({ children }) {
     'Home',
     'About',
     'Services',
-    //'JobPortal',
     'Testimonials',
     'Contact',
   ]);
 
   return (
     <div className="h-screen flex flex-col">
-      {/* Top navbar */}
+      {/* Top navbar with toggle */}
       <Navbar toggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
 
-      {/* Static top nav inside layout */}
-      <div className="bg-gray-200 shadow z-10 px-6 py-3 flex justify-center gap-6 ">
+      {/* Static top nav bar */}
+      <div className="bg-gray-200 shadow z-10 px-6 py-3 flex justify-center gap-6">
         {navLinks.map((page) => (
           <NavLink
             key={page}
@@ -40,12 +36,12 @@ export default function Layout({ children }) {
         ))}
       </div>
 
-      {/* Sidebar + Page Content */}
+      {/* Sidebar and main content area */}
       <div className="flex flex-1">
         {sidebarOpen && (
           <Sidebar navLinks={navLinks} setNavLinks={setNavLinks} />
         )}
-        <main className="flex-1 overflow-y-auto">{children}</main>
+        <main className="flex-grow p-4 overflow-y-auto">{children}</main>
       </div>
     </div>
   );

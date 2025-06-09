@@ -1,5 +1,3 @@
-
-
 import { Check, Pencil, Plus, Trash2 } from 'lucide-react';
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -16,8 +14,11 @@ function Sidebar({ navLinks, setNavLinks }) {
   const handleAddPage = () => {
     const name = newPageName.trim();
     if (name && !navLinks.includes(name)) {
-      setNavLinks([...navLinks, name]);
+      const updated = [...navLinks, name];
+      setNavLinks(updated);
       setNewPageName('');
+      // navigate(`/${name.toLowerCase()}`); // navigate immediately after adding
+      navigate(`/${name}`); // ✅ use as-is
     }
   };
 
@@ -61,7 +62,8 @@ function Sidebar({ navLinks, setNavLinks }) {
 
       <ul className="space-y-2">
         {navLinks.map((name, index) => {
-          const path = `/${name.toLowerCase()}`;
+          // const path = `/${name.toLowerCase()}`;
+          const path = `/${name}`;
           const isActive =
             location.pathname === path ||
             (name === 'Home' && location.pathname === '/');
@@ -98,7 +100,6 @@ function Sidebar({ navLinks, setNavLinks }) {
                       <Pencil size={16} />
                     </button>
                   )}
-
                   <button
                     className="delete-button"
                     onClick={() => handleDelete(index)}
